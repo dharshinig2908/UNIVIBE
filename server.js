@@ -287,11 +287,11 @@ app.post("/api/posts", async (req, res) => {
 async function startServer() {
     try {
         if (!process.env.MONGO_URI) {
-            throw new Error("MONGO_URI is missing from .env file");
+            throw new Error("MONGO_URI is missing from environment variables");
         }
 
         if (!process.env.JWT_SECRET) {
-            throw new Error("JWT_SECRET is missing from .env file");
+            throw new Error("JWT_SECRET is missing from environment variables");
         }
 
         await mongoose.connect(process.env.MONGO_URI, {
@@ -300,14 +300,13 @@ async function startServer() {
 
         console.log("UniVibe MongoDB connected successfully!");
 
-        app.listen(PORT, () => {
-            console.log(
-                `UniVibe server running at http://localhost:${PORT}`
-            );
+        app.listen(PORT, "0.0.0.0", () => {
+            console.log(`UniVibe server running on port ${PORT}`);
         });
 
     } catch (error) {
         console.error("Server startup failed:", error.message);
+        process.exit(1);
     }
 }
 
