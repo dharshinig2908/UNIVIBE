@@ -6,7 +6,7 @@
 // LIKE FEATURE REMOVED
 // ======================================
 
-const API_URL = "http://localhost:5001/api";
+const API_URL = "https://univibe-backend-6kv4.onrender.com/api";
 
 // ======================================
 // AUTHENTICATION
