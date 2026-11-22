@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f7f2ff">
+    <title>UniVibe - Your Student Social Network</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================================= -->
+<!-- AUTHENTICATION SECTION -->
+<!-- ================================= -->
+
+<section id="auth-section" class="auth-section">
+
+    <div class="auth-card">
+
+        <div class="auth-logo">
+            <span class="logo-icon">✦</span>
+            <span>UniVibe</span>
+        </div>
+
+        <p class="auth-tagline">
+            Your Student Social Network
+        </p>
+
+        <!-- LOGIN FORM -->
+
+        <form id="login-form" class="auth-form">
+
+            <h1>Welcome Back! 💜</h1>
+            <p class="auth-description">
+                Login to connect with your campus community.
+            </p>
+
+            <label for="login-email">Email Address</label>
+            <input
+                type="email"
+                id="login-email"
+                placeholder="Enter your student email"
+                autocomplete="email"
+                required
+            >
+
+            <label for="login-password">Password</label>
+            <input
+                type="password"
+                id="login-password"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+                required
+            >
+
+            <button type="submit" id="login-button">
+                Login to UniVibe
+            </button>
+
+            <p class="auth-switch">
+                Don't have an account?
+                <a href="#" id="show-register">Create Account</a>
+            </p>
+
+            <p id="login-message" class="auth-message"
+               aria-live="polite"></p>
+
+        </form>
+
+        <!-- REGISTER FORM -->
+
+        <form id="register-form" class="auth-form hidden">
+
+            <h1>Join UniVibe ✨</h1>
+            <p class="auth-description">
+                Create your student account and get connected.
+            </p>
+
+            <label for="register-name">Full Name</label>
+            <input
+                type="text"
+                id="register-name"
+                placeholder="Enter your full name"
+                autocomplete="name"
+                maxlength="60"
+                required
+            >
+
+            <label for="register-email">Email Address</label>
+            <input
+                type="email"
+                id="register-email"
+                placeholder="Enter your email"
+                autocomplete="email"
+                required
+            >
+
+            <label for="register-password">Password</label>
+            <input
+                type="password"
+                id="register-password"
+                placeholder="Create a password (minimum 8 characters)"
+                minlength="8"
+                autocomplete="new-password"
+                required
+            >
+
+            <button type="submit" id="register-button">
+                Create My Account
+            </button>
+
+            <p class="auth-switch">
+                Already have an account?
+                <a href="#" id="show-login">Login</a>
+            </p>
+
+            <p id="register-message" class="auth-message"
+               aria-live="polite"></p>
+
+        </form>
+
+        <p class="auth-footer">
+            Connect • Share • Discover • Grow
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================================= -->
+<!-- MAIN APPLICATION DASHBOARD -->
+<!-- ================================= -->
+
+<div class="app-container hidden" id="app-container">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <span class="logo-icon">✦</span>
+            <span>UniVibe</span>
+        </div>
+
+        <p class="menu-label">MENU</p>
+
+        <nav>
+            <a href="#" class="active" data-view="home">🏠 Home</a>
+            <a href="#" data-view="explore">🔍 Explore</a>
+            <a href="#" data-view="connections">👥 Connections</a>
+            <a href="#" data-view="notifications">🔔 Notifications</a>
+            <a href="#" data-view="saved">🔖 Saved Posts</a>
+        </nav>
+
+        <div class="sidebar-profile">
+            <div class="avatar" id="sidebar-avatar">D</div>
+            <div>
+                <h4 id="sidebar-name">Student</h4>
+                <p>Student Member</p>
+            </div>
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <h2 id="page-title">Home Feed</h2>
+                <p id="page-subtitle">
+                    Stay connected with your campus.
+                </p>
+            </div>
+
+            <div class="topbar-user">
+                <span id="welcome-user">Welcome back!</span>
+                <div class="avatar" id="topbar-avatar">D</div>
+
+                <button
+                    type="button"
+                    id="logout-button"
+                    class="logout-button"
+                >
+                    Logout
+                </button>
+            </div>
+
+        </header>
+
+
+        <!-- HOME -->
+
+        <section class="page-view active-view" id="home-view">
+
+            <section class="welcome-banner">
+
+                <div>
+                    <span class="banner-label">
+                        YOUR CAMPUS. YOUR COMMUNITY.
+                    </span>
+
+                    <h1>
+                        Find your people.<br>
+                        Share your vibe.
+                    </h1>
+
+                    <p>
+                        Connect with students, discover ideas and grow together.
+                    </p>
+                </div>
+
+                <div class="banner-art">💜</div>
+
+            </section>
+
+
+            <section class="create-post">
+
+                <h3>
+                    Share something with your community ✨
+                </h3>
+
+                <textarea
+                    id="post-input"
+                    placeholder="What's happening on your campus?"
+                ></textarea>
+
+                <div class="post-actions">
+                    <span>💬 Share your thoughts</span>
+                    <button id="create-post-button" type="button">
+                        + Create Post
+                    </button>
+                </div>
+
+            </section>
+
+
+            <section class="feed-section">
+
+                <div class="feed-heading">
+                    <h2>Community Feed</h2>
+                    <span>Latest updates</span>
+                </div>
+
+                <div id="posts-container"></div>
+
+            </section>
+
+        </section>
+
+
+        <!-- EXPLORE -->
+
+        <section class="page-view" id="explore-view">
+
+            <section class="content-panel">
+
+                <h2>Explore UniVibe 🔍</h2>
+
+                <p>
+                    Discover ideas and posts from your student community.
+                </p>
+
+                <input
+                    id="explore-search"
+                    class="search-input"
+                    type="search"
+                    placeholder="Search posts by keyword..."
+                >
+
+                <div id="explore-posts"></div>
+
+            </section>
+
+        </section>
+
+
+        <!-- CONNECTIONS -->
+
+        <section class="page-view" id="connections-view">
+
+            <section class="content-panel">
+
+                <h2>Find Your Connections 👥</h2>
+
+                <p>
+                    Meet students and grow your campus community.
+                </p>
+
+                <div
+                    id="connections-list"
+                    class="connections-list"
+                ></div>
+
+            </section>
+
+        </section>
+
+
+        <!-- NOTIFICATIONS -->
+
+        <section class="page-view" id="notifications-view">
+
+            <section class="content-panel">
+
+                <h2>Notifications 🔔</h2>
+
+                <p>
+                    Stay updated with your UniVibe activity.
+                </p>
+
+                <div id="notifications-list"></div>
+
+            </section>
+
+        </section>
+
+
+        <!-- SAVED POSTS -->
+
+        <section class="page-view" id="saved-view">
+
+            <section class="content-panel">
+
+                <h2>Your Saved Posts 🔖</h2>
+
+                <p>Posts you've saved for later.</p>
+
+                <div id="saved-posts"></div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- RIGHT SIDEBAR -->
+
+    <aside class="right-sidebar">
+
+        <section class="profile-card">
+
+            <div class="profile-cover"></div>
+
+            <div class="avatar large" id="profile-avatar">D</div>
+
+            <h3 id="profile-name">Student</h3>
+
+            <p>Welcome to your student community!</p>
+
+            <div class="profile-stats">
+
+                <div>
+                    <strong id="profile-post-count">0</strong>
+                    <span>Posts</span>
+                </div>
+
+                <div>
+                    <strong id="profile-follow-count">0</strong>
+                    <span>Following</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="suggestions">
+
+            <div class="suggestion-heading">
+                <h3>People you may know</h3>
+                <span>Discover</span>
+            </div>
+
+            <div class="suggestion-card">
+                <div class="avatar">A</div>
+                <div>
+                    <strong>Alex Morgan</strong>
+                    <p>Computer Science</p>
+                </div>
+                <button type="button" data-follow="Alex Morgan">
+                    Follow
+                </button>
+            </div>
+
+            <div class="suggestion-card">
+                <div class="avatar">S</div>
+                <div>
+                    <strong>Sophia Lee</strong>
+                    <p>UI/UX Designer</p>
+                </div>
+                <button type="button" data-follow="Sophia Lee">
+                    Follow
+                </button>
+            </div>
+
+            <div class="suggestion-card">
+                <div class="avatar">R</div>
+                <div>
+                    <strong>Ryan Cooper</strong>
+                    <p>Web Developer</p>
+                </div>
+                <button type="button" data-follow="Ryan Cooper">
+                    Follow
+                </button>
+            </div>
+
+        </section>
+
+    </aside>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
